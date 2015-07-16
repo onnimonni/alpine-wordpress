@@ -10,7 +10,8 @@ Lightwight Docker image for the (latest) PHP-FPM and Nginx based on [AlpineLinux
   
 ### Usage
 ```bash
-sudo docker run -v /data:/DATA -p 80:80 psitrax/php-nginx
+sudo docker run -e VIRTUAL_HOST=etopian.com -e VIRTUAL_PORT=8081 -v /data/sites/etopian.com:/DATA -p 8081:80 psitrax/php-nginx
+
 ```
 
 ### Volume structure
