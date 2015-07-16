@@ -17,7 +17,7 @@ docker pull etopian/nginx-proxy
 
 mkdir -p /data/sites/etopian.com/htdocs
 
-sudo docker run -e VIRTUAL_HOST=etopian.com -e VIRTUAL_PORT=8081 -v /data/sites/etopian.com:/DATA -p 8081:80 etopian/alpine-nginx-wordpress
+sudo docker run -e VIRTUAL_HOST=etopian.com -v /data/sites/etopian.com:/DATA -p 80 etopian/alpine-nginx-wordpress
 
 ```
 The following user and group id are used, the files should be set to this:
