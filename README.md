@@ -8,7 +8,9 @@ Lightwight Docker image for the (latest) PHP-FPM and Nginx to run WordPress base
   * [Nginx](http://pkgs.alpinelinux.org/package/main/x86/nginx) 1.6.2
   
   
-### Usage
+### A simple example
+## Say you want to run a single site on a box with Docker
+
 ```bash
 sudo docker run -e VIRTUAL_HOST=etopian.com -e VIRTUAL_PORT=8081 -v /data/sites/etopian.com:/DATA -p 8081:80 etopian/alpine-nginx-wordpress
 
