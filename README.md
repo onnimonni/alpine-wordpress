@@ -13,8 +13,6 @@ Lightwight Docker image for the (latest) PHP-FPM and Nginx to run WordPress base
 ### Say you want to run a single site on a VPS with Docker
 
 ```bash
-# install docker
-docker pull etopian/nginx-proxy
 
 mkdir -p /data/sites/etopian.com/htdocs
 
@@ -27,7 +25,26 @@ Group ID:
 
 ```bash
 chown -R 
-````
+```
+
+### Say you want to run a multiple WP sites on a VPS with Docker
+
+```bash
+
+mkdir -p /data/sites/etopian.com/htdocs
+
+sudo docker run -e VIRTUAL_HOST=etopian.com -v /data/sites/etopian.com:/DATA -p 80:80 etopian/alpine-nginx-wordpress
+
+```
+The following user and group id are used, the files should be set to this:
+User ID: 
+Group ID: 
+
+```bash
+chown -R 
+```
+
+
 
 ### Volume structure
 
