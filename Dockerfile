@@ -1,5 +1,5 @@
 FROM alpine:edge
-MAINTAINER Christoph Wiechert <wio@psitrax.de>
+MAINTAINER Etopian Inc. <contact@etopian.com>
 
 RUN apk update \
     && apk add bash nginx ca-certificates \
