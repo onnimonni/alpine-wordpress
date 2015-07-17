@@ -42,7 +42,7 @@ mkdir -p /data/sites/etopian.net/htdocs
 sudo docker run -e VIRTUAL_HOST=etopian.net -v /data/sites/etopian.net:/DATA etopian/alpine-nginx-wordpress
 ```
 
-Populate /data/sites/etopian.com/htdocs and  /data/sites/etopian.net/htdocs with your WP files. See http://www.dockerwordpress.com if you need help on how to configure things.
+Populate /data/sites/etopian.com/htdocs and  /data/sites/etopian.net/htdocs with your WP files. See http://www.dockerwordpress.com if you need help on how to configure your database.
 
 The following user and group id are used, the files should be set to this:
 User ID: 
