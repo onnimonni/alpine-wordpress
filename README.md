@@ -44,7 +44,7 @@ User ID:
 Group ID: 
 
 ```bash
-chown -R 
+chown -R 100:101 /data/sites/etopian.com/htdocs
 ```
 
 
