@@ -26,7 +26,7 @@ User ID:
 Group ID: 
 
 ```bash
-chown -R 
+chown -R 100:101 /data/sites/etopian.com/htdocs
 ```
 
 ### Say you want to run a multiple WP sites on a VPS with Docker
