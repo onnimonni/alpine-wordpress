@@ -61,6 +61,7 @@ chown -R 100:101 /data/sites/etopian.com/htdocs
 * 
 
 ### PHP Modules
+#### List of available modules in Alpine Linux, not all these are installed.
 
 php-soap-5.6.11-r0
 
