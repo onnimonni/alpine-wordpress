@@ -1,3 +1,8 @@
+##### This image is being maintained. No need to fork it. Upgrade your site using the upgrade strategy on dockerwordpress.com
+
+http://www.dockerwordpress.com/docker/upgrading-wordpress-docker
+
+
 # Lightweight WordPress PHP-FPM & Nginx Docker Image
 
 http://www.dockerwordpress.com
