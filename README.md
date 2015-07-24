@@ -62,6 +62,16 @@ chown -R 100:101 /data/sites/etopian.com/htdocs
 
 ### PHP Modules
 #### List of available modules in Alpine Linux, not all these are installed.
+##### In order to install a module do 
+```
+docker run <image_id> apk add <pkg_name>
+```
+Example:
+
+```
+docker run <image_id> apk add php-soap
+```
+
 
 php-soap-5.6.11-r0
 
