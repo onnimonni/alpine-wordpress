@@ -2,7 +2,7 @@ FROM alpine:edge
 MAINTAINER Etopian Inc. <contact@etopian.com>
 
 RUN apk update \
-    && apk add bash less nginx ca-certificates \
+    && apk add bash less vim nginx ca-certificates \
     php-fpm php-json php-zlib php-xml php-pdo php-phar php-openssl \
     php-pdo_mysql php-mysqli \
     php-gd php-iconv php-mcrypt \
@@ -18,6 +18,8 @@ ADD files/php-fpm.conf /etc/php/
 ADD files/run.sh /
 RUN chmod +x /run.sh
 
+RUN echo 'export TERM=xterm' >> /etc/profile 
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar; chmod +x wp-cli.phar; mv /usr/bin/wp-cli.phar
 
 EXPOSE 80
 VOLUME ["/DATA"]
