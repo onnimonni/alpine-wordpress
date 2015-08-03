@@ -7,7 +7,7 @@ RUN apk update \
     php-pdo_mysql php-mysqli \
     php-gd php-iconv php-mcrypt \
     php-mysql php-curl php-opcache php-ctype php-apcu \
-    php-intl php-bcmath php-dom php-xmlreader
+    php-intl php-bcmath php-dom php-xmlreader mysql-client
 
 # fix php-fpm "Error relocating /usr/bin/php-fpm: __flt_rounds: symbol not found" bug
 RUN apk add -u musl
