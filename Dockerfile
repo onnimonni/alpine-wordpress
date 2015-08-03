@@ -2,7 +2,7 @@ FROM alpine:edge
 MAINTAINER Etopian Inc. <contact@etopian.com>
 
 RUN apk update \
-    && apk add bash nginx ca-certificates \
+    && apk add bash less nginx ca-certificates \
     php-fpm php-json php-zlib php-xml php-pdo php-phar php-openssl \
     php-pdo_mysql php-mysqli \
     php-gd php-iconv php-mcrypt \
