@@ -65,6 +65,16 @@ chown -R 100:101 /data/sites/etopian.com/htdocs
 * `logs`: Nginx/PHP error logs
 * 
 
+### WP-CLI
+
+This image now includes WP-CLI wpcli.org baked in... So you can 
+
+```
+docker exec -it <container_name> bash
+cd /DATA/htdocs
+wp-cli.phar cli
+```
+
 ### PHP Modules
 #### List of available modules in Alpine Linux, not all these are installed.
 ##### In order to install a php module do, (leave out the version number i.e. -5.6.11-r0
