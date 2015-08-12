@@ -13,6 +13,8 @@ RUN apk update \
 RUN apk add -u musl
 RUN rm -rf /var/cache/apk/*
 
+ENV TERM xterm
+
 ADD files/nginx.conf /etc/nginx/
 ADD files/php-fpm.conf /etc/php/
 ADD files/run.sh /
