@@ -15,6 +15,8 @@ RUN rm -rf /var/cache/apk/*
 
 ENV TERM xterm
 ENV DB_HOST 172.17.42.1
+ENV DB_NAME $name
+ENV DB_USER $name
 
 ADD files/nginx.conf /etc/nginx/
 ADD files/php-fpm.conf /etc/php/
