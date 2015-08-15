@@ -14,7 +14,7 @@ RUN apk add -u musl
 RUN rm -rf /var/cache/apk/*
 
 ENV TERM xterm
-ENV DATABASE_HOST 172.17.42.1
+ENV DB_HOST 172.17.42.1
 
 ADD files/nginx.conf /etc/nginx/
 ADD files/php-fpm.conf /etc/php/
