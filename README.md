@@ -2,7 +2,6 @@
 
 http://www.dockerwordpress.com/docker/upgrading-wordpress-docker
 
-
 # Lightweight WordPress PHP-FPM & Nginx Docker Image
 
 http://www.dockerwordpress.com
