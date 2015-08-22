@@ -20,7 +20,7 @@ RUN apk update \
 
 RUN rm -rf /var/cache/apk/*
 
-ENV TERM="xterm" DB_HOST="172.17.42.1" DB_NAME= DB_USER= DB_PASS=
+ENV TERM="xterm" DB_HOST="172.17.42.1" DB_NAME="" DB_USER="" DB_PASS=""
 ADD files/nginx.conf /etc/nginx/
 ADD files/php-fpm.conf /etc/php/
 ADD files/run.sh /
