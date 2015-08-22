@@ -1,10 +1,12 @@
 FROM alpine:edge
 MAINTAINER Etopian Inc. <contact@etopian.com>
 
-LABEL devoply.type=site
-LABEL devoply.cms=wordpress
-LABEL devoply.framework=wordpress
-LABEL devoply.language=php
+LABEL devoply.type="site"
+LABEL devoply.cms="wordpress"
+LABEL devoply.framework="wordpress"
+LABEL devoply.language="php"
+LABEL devoply.require="mariadb etopian/nginx-proxy"
+LABEL devoply.recommend="redis"
 
 RUN apk update \
     && apk add bash less vim nginx ca-certificates \
