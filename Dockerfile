@@ -1,14 +1,14 @@
 FROM alpine:edge
 MAINTAINER Etopian Inc. <contact@etopian.com>
 
-LABEL devoply.type="site"
-LABEL devoply.cms="wordpress"
-LABEL devoply.framework="wordpress"
-LABEL devoply.language="php"
-LABEL devoply.require="mariadb etopian/nginx-proxy"
-LABEL devoply.recommend="redis"
-LABEL devoply.description="WordPress on Nginx and PHP-FPM with WP-CLI."
-LABEL devoply.name="WordPress"
+LABEL   devoply.type="site" \
+        devoply.cms="wordpress" \
+        devoply.framework="wordpress" \
+        devoply.language="php" \
+        devoply.require="mariadb etopian/nginx-proxy" \
+        devoply.recommend="redis" \
+        devoply.description="WordPress on Nginx and PHP-FPM with WP-CLI." \
+        devoply.name="WordPress"
 
 RUN apk update \
     && apk add bash less vim nginx ca-certificates \
@@ -20,11 +20,13 @@ RUN apk update \
 
 RUN rm -rf /var/cache/apk/*
 
-ENV TERM="xterm" 
-ENV DB_HOST="172.17.42.1"
-ENV DB_NAME=""
-ENV DB_USER=""
-ENV DB_PASS=""
+ENV TERM="xterm" \
+    DB_HOST="172.17.42.1" \
+    DB_NAME="" \
+    DB_USER=""\
+    DB_PASS=""
+
+
 RUN sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php5/fpm/php.ini
 ADD files/nginx.conf /etc/nginx/
 ADD files/php-fpm.conf /etc/php/
