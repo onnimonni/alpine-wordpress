@@ -8,6 +8,7 @@ LABEL devoply.language="php"
 LABEL devoply.require="mariadb etopian/nginx-proxy"
 LABEL devoply.recommend="redis"
 LABEL devoply.description="WordPress on Nginx and PHP-FPM with WP-CLI."
+LABEL devoply.name="WordPress"
 
 RUN apk update \
     && apk add bash less vim nginx ca-certificates \
