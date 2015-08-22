@@ -1,6 +1,10 @@
 FROM alpine:edge
 MAINTAINER Etopian Inc. <contact@etopian.com>
 
+LABEL devoply.type=site
+LABEL devoply.cms=wordpress
+LABEL devoply.framework=wordpress
+LABEL devoply.language=php
 
 RUN apk update \
     && apk add bash less vim nginx ca-certificates \
