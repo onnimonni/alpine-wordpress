@@ -1,7 +1,5 @@
 ##### This image is being maintained. No need to fork it. Upgrade your site using the upgrade strategy on dockerwordpress.com
 
-<a href='https://imagelayers.io/?images=etopian/alpine-php-wordpress:latest' title='Get your own badge on imagelayers.io'><img src='https://badge.imagelayers.io/etopian/alpine-php-wordpress:latest.svg'></a>
-
 http://www.dockerwordpress.com/docker/upgrading-wordpress-docker
 
 
