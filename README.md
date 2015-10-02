@@ -74,6 +74,10 @@ cd /DATA/htdocs
 wp-cli.phar cli
 ```
 
+### Multisite
+
+For each multisite you need to give the domain as the -e VIRTUAL_HOST parameter. For instance VIRTUAL_HOST=site1.com,www.site1.com,site2.com,www.site2.com ... if you wish to add most sites you need to recreated the container.
+
 ### PHP Modules
 #### List of available modules in Alpine Linux, not all these are installed.
 ##### In order to install a php module do, (leave out the version number i.e. -5.6.11-r0
