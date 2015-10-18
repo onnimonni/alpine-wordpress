@@ -68,15 +68,16 @@ chown -R 100:101 /data/sites/etopian.com/htdocs
 
 This image now includes WP-CLI wpcli.org baked in... So you can 
 
+```
+docker exec -it <container_name> bash
+su nginx
+cd /DATA/htdocs
+wp-cli cli
+```
+
 ### Fail2Ban
 
 We are adding the ability to use Fail2Ban on here, however it does not yet work. Will update once it does.
-
-```
-docker exec -it <container_name> bash
-cd /DATA/htdocs
-wp-cli.phar cli
-```
 
 ### Multisite
 
