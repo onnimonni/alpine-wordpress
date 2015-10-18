@@ -66,7 +66,7 @@ chown -R 100:101 /data/sites/etopian.com/htdocs
 
 ### WP-CLI
 
-This image now includes WP-CLI wpcli.org baked in... So you can 
+This image now includes WP-CLI wpcli.org baked in... So you can. Please `su nginx` before executing or else you can potentially compromise your host.
 
 ```
 docker exec -it <container_name> bash
