@@ -68,6 +68,10 @@ chown -R 100:101 /data/sites/etopian.com/htdocs
 
 This image now includes WP-CLI wpcli.org baked in... So you can 
 
+### Fail2Ban
+
+We are adding the ability to use Fail2Ban on here, however it does not yet work. Will update once it does.
+
 ```
 docker exec -it <container_name> bash
 cd /DATA/htdocs
@@ -76,7 +80,7 @@ wp-cli.phar cli
 
 ### Multisite
 
-For each multisite you need to give the domain as the -e VIRTUAL_HOST parameter. For instance VIRTUAL_HOST=site1.com,www.site1.com,site2.com,www.site2.com ... if you wish to add most sites you need to recreated the container.
+For each multisite you need to give the domain as the -e VIRTUAL_HOST parameter. For instance VIRTUAL_HOST=site1.com,www.site1.com,site2.com,www.site2.com ... if you wish to add more sites you need to recreate the container.
 
 ### PHP Modules
 #### List of available modules in Alpine Linux, not all these are installed.
