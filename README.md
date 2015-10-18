@@ -83,6 +83,19 @@ We are adding the ability to use Fail2Ban on here, however it does not yet work.
 
 For each multisite you need to give the domain as the -e VIRTUAL_HOST parameter. For instance VIRTUAL_HOST=site1.com,www.site1.com,site2.com,www.site2.com ... if you wish to add more sites you need to recreate the container.
 
+### Upload limit
+
+The upload limit is 2 gigabyte.
+
+### Change php.ini value
+modify files/php-fpm.conf
+
+To modify php.ini variable, simply edit php-fpm.ini and add php_flag[variable] = value.
+
+```
+php_flag[display_errors] = on
+```
+
 ### PHP Modules
 #### List of available modules in Alpine Linux, not all these are installed.
 ##### In order to install a php module do, (leave out the version number i.e. -5.6.11-r0
