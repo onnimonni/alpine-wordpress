@@ -23,7 +23,7 @@ RUN apk update \
 RUN rm -rf /var/cache/apk/*
 
 ENV TERM="xterm" \
-    DB_HOST="172.17.42.1" \
+    DB_HOST="172.17.0.1" \
     DB_NAME="" \
     DB_USER=""\
     DB_PASS=""
