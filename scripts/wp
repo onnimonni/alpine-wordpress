@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+##
+# WP-cli wrapper: Append path automatically so that user doesn't have to
+##
+
+/usr/bin/wp-cli "$@" --path=$WP_CORE
