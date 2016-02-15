@@ -82,8 +82,6 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Use wp-cli as non root automatically
-alias wp='su www-data /usr/bin/wp'
 
 # root user has to be awesome so the default editor is vim
 export EDITOR=vim
