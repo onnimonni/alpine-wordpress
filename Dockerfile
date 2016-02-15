@@ -46,7 +46,8 @@ ENV TERM="xterm" \
     DB_HOST="172.17.0.1" \
     DB_NAME="" \
     DB_USER=""\
-    DB_PASS=""
+    DB_PASS=""\
+    WP_CORE="/data/htdocs/wordpress"
 
 # Install wp-cli
 # Add wp-cli wrapper
@@ -88,6 +89,6 @@ RUN cd /tmp && \
 RUN rm -rf /var/cache/apk/*
 
 EXPOSE 80
-VOLUME ["/DATA"]
+VOLUME ["/data"]
 
 CMD ["/run.sh"]
