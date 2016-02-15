@@ -24,6 +24,29 @@ RUN apk update \
     libssh2 curl libpng freetype libjpeg-turbo libgcc libxml2 libstdc++ icu-libs libltdl libmcrypt \
     && apk add -u musl
 
+##
+# Install PhantomJS
+##
+
+# Add preconfigured phantomjs package build with: https://github.com/fgrehm/docker-phantomjs2
+# This adds all sorts of dependencies from dockerize magic
+ADD lib/phantomjs-dependencies.tar.gz /
+
+# Update phantomjs binary to 2.1.1
+RUN cd /tmp && \
+    wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
+    tar -xjf phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
+    mv phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs && \
+    chmod +x /usr/local/bin/phantomjs && \
+    rm -r /tmp/*
+
+##
+# Install ruby + poltergeist
+##
+RUN apk add ruby ruby-nokogiri build-base ruby-dev && \
+    gem install rspec rspec-retry poltergeist capybara --no-ri --no-rdoc && \
+    apk del build-base ruby-dev
+
 # Small fixes
 RUN sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php/php.ini && \
     sed -i 's/nginx:x:100:101:Linux User,,,:\/var\/www\/localhost\/htdocs:\/sbin\/nologin/nginx:x:100:101:Linux User,,,:\/var\/www\/localhost\/htdocs:\/bin\/bash/g' /etc/passwd && \
@@ -62,29 +85,6 @@ RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
     php -r "unlink('composer-setup.php');" && \
     mv composer.phar /usr/local/bin/composer && \
     chmod +x /usr/local/bin/composer
-
-##
-# Install ruby + poltergeist
-##
-RUN apk add ruby ruby-nokogiri build-base ruby-dev && \
-    gem install rspec rspec-retry poltergeist capybara --no-ri --no-rdoc && \
-    apk del build-base ruby-dev
-
-##
-# Install PhantomJS
-##
-
-# Add preconfigured phantomjs package build with: https://github.com/fgrehm/docker-phantomjs2
-# This adds all sorts of dependencies from dockerize magic
-ADD lib/phantomjs-dependencies.tar.gz /
-
-# Update phantomjs binary to 2.1.1
-RUN cd /tmp && \
-    wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
-    tar -xjf phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
-    mv phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin/phantomjs && \
-    chmod +x /usr/local/bin/phantomjs && \
-    rm -r /tmp/*
 
 RUN rm -rf /var/cache/apk/*
 
