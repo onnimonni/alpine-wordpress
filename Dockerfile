@@ -50,17 +50,17 @@ ENV TERM="xterm" \
 
 # Install wp-cli
 # Add wp-cli wrapper
-ADD scripts/wp /usr/bin/local/wp
+ADD scripts/wp /usr/local/bin/wp
 
-RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/bin/local/wp-cli && chmod +x /usr/bin/local/wp
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp-cli && chmod +x /usr/local/bin/wp
 
 # Install composer
 # source: https://getcomposer.org/download/
 RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php && \
     php composer-setup.php && \
     php -r "unlink('composer-setup.php');" && \
-    mv composer.phar /usr/bin/local/composer && \
-    chmod +x /usr/bin/local/composer
+    mv composer.phar /usr/local/bin/composer && \
+    chmod +x /usr/local/bin/composer
 
 ##
 # Install ruby + poltergeist
