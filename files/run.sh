@@ -2,9 +2,9 @@
 
 [ -f /run-pre.sh ] && /run-pre.sh
 
-if [ ! -d /data/htdocs ] ; then
-  mkdir -p /data/htdocs
-  chown nginx:www-data /data/htdocs
+if [ ! -d /data/code/htdocs ] ; then
+  mkdir -p /data/code/htdocs
+  chown nginx:www-data /data/code/htdocs
 fi
 
 # start php-fpm

@@ -70,7 +70,7 @@ ENV TERM="xterm" \
     DB_NAME="" \
     DB_USER=""\
     DB_PASS=""\
-    WP_CORE="/data/htdocs/wordpress"
+    WP_CORE="/data/code/htdocs/wordpress"
 
 # Install wp-cli
 # Add wp-cli wrapper
