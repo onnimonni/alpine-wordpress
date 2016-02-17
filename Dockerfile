@@ -19,7 +19,7 @@ RUN apk update \
     php-pdo_mysql php-mysqli \
     php-gd php-mcrypt \
     php-curl php-opcache php-ctype  \
-    php-intl php-bcmath php-dom php-xmlreader php-apcu php-mysql php-iconv php-redis \
+    php-intl php-bcmath php-dom php-xmlreader php-apcu php-mysql php-iconv \
     # Libs for php
     libssh2 curl libpng freetype libjpeg-turbo libgcc libxml2 libstdc++ icu-libs libltdl libmcrypt \
     && apk add -u musl
