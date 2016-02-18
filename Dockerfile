@@ -43,7 +43,7 @@ RUN cd /tmp && \
 ##
 # Install ruby + poltergeist
 ##
-RUN apk add ruby ruby-nokogiri build-base ruby-dev && \
+RUN apk add ruby ruby-nokogiri ruby-json build-base ruby-dev && \
     gem install rspec rspec-retry poltergeist capybara --no-ri --no-rdoc && \
     apk del build-base ruby-dev
 
