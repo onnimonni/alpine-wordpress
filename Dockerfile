@@ -52,6 +52,23 @@ RUN sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php/php.ini && \
     sed -i 's/nginx:x:100:101:Linux User,,,:\/var\/www\/localhost\/htdocs:\/sbin\/nologin/nginx:x:100:101:Linux User,,,:\/var\/www\/localhost\/htdocs:\/bin\/bash/g' /etc/passwd && \
     sed -i 's/nginx:x:100:101:Linux User,,,:\/var\/www\/localhost\/htdocs:\/sbin\/nologin/nginx:x:100:101:Linux User,,,:\/var\/www\/localhost\/htdocs:\/bin\/bash/g' /etc/passwd-
 
+# Install wp-cli
+# Add wp-cli wrapper
+ADD scripts/wp /usr/local/bin/wp
+
+RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp-cli && chmod +x /usr/local/bin/wp
+
+# Install composer
+# source: https://getcomposer.org/download/
+RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php && \
+    php composer-setup.php && \
+    php -r "unlink('composer-setup.php');" && \
+    mv composer.phar /usr/local/bin/composer && \
+    chmod +x /usr/local/bin/composer
+
+##
+# Add nginx files
+##
 ADD files/nginx/ /etc/nginx/
 ADD files/php-fpm.conf /etc/php/
 ADD files/run.sh /
@@ -71,20 +88,6 @@ ENV TERM="xterm" \
     DB_USER=""\
     DB_PASS=""\
     WP_CORE="/data/code/htdocs/wordpress"
-
-# Install wp-cli
-# Add wp-cli wrapper
-ADD scripts/wp /usr/local/bin/wp
-
-RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp-cli && chmod +x /usr/local/bin/wp
-
-# Install composer
-# source: https://getcomposer.org/download/
-RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php && \
-    php composer-setup.php && \
-    php -r "unlink('composer-setup.php');" && \
-    mv composer.phar /usr/local/bin/composer && \
-    chmod +x /usr/local/bin/composer
 
 RUN rm -rf /var/cache/apk/*
 
