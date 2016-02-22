@@ -1,0 +1,18 @@
+#!/usr/bin/with-contenv sh
+##
+# This script changes envelope-from setting for mailing binary msmtp
+##
+
+if [ -n "$MAIL_SENDER" ]; then
+  mail_replace=$MAIL_SENDER
+elif [ -n "$MAIL_DOMAIN" ]; then
+  mail_replace="no-reply@$MAIL_DOMAIN"
+elif [ wp core is-installed ]; then
+  mail_replace="no-reply@$(wp option get siteurl|sed 's/https\?:\/\///')"
+else
+  echo "ERROR: MAIL_SENDER or MAIL_DOMAIN variable is not set. Mail won't work until then." 1>&2
+  exit 100
+fi
+
+# Change mail sender according to domain
+sed -i "s/^from.*$/from $mail_replace/g" /etc/msmtprc
