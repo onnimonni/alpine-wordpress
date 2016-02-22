@@ -47,6 +47,11 @@ RUN apk add ruby ruby-nokogiri ruby-json build-base ruby-dev && \
     gem install rspec rspec-retry poltergeist capybara --no-ri --no-rdoc && \
     apk del build-base ruby-dev
 
+# Add S6-overlay to use S6 process manager
+# https://github.com/just-containers/s6-overlay/#the-docker-way
+ADD https://github.com/just-containers/s6-overlay/releases/download/v1.11.0.1/s6-overlay-amd64.tar.gz /tmp/
+RUN gunzip -c /tmp/s6-overlay-amd64.tar.gz | tar -xf - -C /
+
 # Small fixes
 RUN sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php/php.ini && \
     sed -i 's/nginx:x:100:101:Linux User,,,:\/var\/www\/localhost\/htdocs:\/sbin\/nologin/nginx:x:100:101:Linux User,,,:\/var\/www\/localhost\/htdocs:\/bin\/bash/g' /etc/passwd && \
@@ -67,13 +72,9 @@ RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
     chmod +x /usr/local/bin/composer
 
 ##
-# Add nginx files
+# Add Project files like nginx and php-fpm processes and configs
 ##
-ADD files/nginx/ /etc/nginx/
-ADD files/php-fpm.conf /etc/php/
-ADD files/run.sh /
-
-RUN chmod +x /run.sh
+ADD files/etc/ /etc/
 
 ###
 # Additions
@@ -87,11 +88,11 @@ ENV TERM="xterm" \
     DB_NAME="" \
     DB_USER=""\
     DB_PASS=""\
-    WP_CORE="/data/code/htdocs/wordpress"
+    WP_CORE="/data/code/htdocs/wp"
 
 RUN rm -rf /var/cache/apk/*
 
 EXPOSE 80
 VOLUME ["/data"]
 
-CMD ["/run.sh"]
+ENTRYPOINT ["/init"]

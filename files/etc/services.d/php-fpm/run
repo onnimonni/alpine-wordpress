@@ -1,0 +1,2 @@
+#!/usr/bin/with-contenv sh
+exec /usr/bin/php-fpm --fpm-config /etc/php/php-fpm.conf --pid /var/run/php-fpm.pid
