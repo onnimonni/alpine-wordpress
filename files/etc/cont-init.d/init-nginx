@@ -1,7 +1,15 @@
 #!/bin/sh
+
+# Create htdocs for web root
 if [ ! -d /data/code/htdocs ] ; then
   mkdir -p /data/code/htdocs
   chown nginx:www-data /data/code/htdocs
+fi
+
+# Create uploads directory if not exists
+if [ ! -d /data/uploads ] ; then
+  mkdir -p /data/uploads
+  chown nginx:www-data /data/uploads
 fi
 
 mkdir -p /data/logs/nginx

@@ -1,1 +1,1 @@
-/data/uploads false www-data,100:101 0664 0755
+/data/uploads true nginx:www-data,3:4: UID=100 GID=101 0664 0755
