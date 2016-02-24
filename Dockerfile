@@ -114,6 +114,9 @@ ENV TERM="xterm" \
 
 RUN rm -rf /var/cache/apk/*
 
+# Set default path
+WORKDIR /data/code
+
 EXPOSE 80
 VOLUME ["/data"]
 
